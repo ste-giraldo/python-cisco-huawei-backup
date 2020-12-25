@@ -1,5 +1,5 @@
 # Written by Mike Ivanov - https://github.com/mikonoid/python-cisco-backup
-# Mod by Stefano Giraldo - ste.giraldo@gmail.com
+# Mod by Stefano Giraldo
 
 # python-cisco-backup
 script for backup cisco configs
