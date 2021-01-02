@@ -1,8 +1,8 @@
 # Original script written by Mike Ivanov - https://github.com/mikonoid/python-cisco-backup
 # Fork by Stefano Giraldo - https://github.com/ste-giraldo
 
-# python-cisco-backup
-script for backup cisco configs
+# python-cisco-huawei-backup
+scripts for backup cisco and huawei configs
 Tested on python 2.7 with paramiko lib
 
 #cisco_backup_v0.1.py
