@@ -25,7 +25,7 @@ SECRET = getpass.getpass("Enable Password: ")
 
 #start FOR ...in 
 #open host list from file
-f = open('cisco_backup_hosts')
+f = open('huawei_backup_hosts')
 for ip in f.readlines():
 	ip = ip.strip()
 	#prefix files for backup
@@ -37,20 +37,16 @@ for ip in f.readlines():
 	#ssh shell
 	chan = client.invoke_shell()
 	time.sleep(0.5)
-	#enter enable secret
-	chan.send('enable\n')
-	time.sleep(0.5)
-	chan.send(SECRET +'\n')
 	#terminal lenght for no paging 
-	chan.send('term len 0\n')
+	chan.send('screen-length 0 temp\n')
 	time.sleep(0.5)
-        #show running-config and write output in a file
-        chan.send('show run\n')
-        time.sleep(3)
-        output = chan.recv(99999999)
+	#display current-config and write output in a file
+	chan.send('dis cur\n')
+	time.sleep(3)
+	output = chan.recv(99999999)
 	#show output config and write file with prefix, date and time
 	print output
-        #choose file format by commenting or decommenting filename lines below
+	#choose file format by commenting or decommenting lines below
 #	filename = "%s_%.2i-%.2i-%i_%.2i-%.2i-%.2i" % (filename_prefix,now.day,now.month,now.year,now.hour,now.minute,now.second)
 	filename = "%s_%.2i-%.2i-%i" % (filename_prefix,now.year,now.month,now.day)
 	ff = open(filename, 'a')
